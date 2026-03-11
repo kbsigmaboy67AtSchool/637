@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google</title>
+<link rel="icon" href="https://www.google.com/favicon.ico">
+<meta charset="utf-8">
+
+<style>
+html,body{
+margin:0;
+height:100%;
+overflow:hidden;
+}
+iframe{
+width:100vw;
+height:100vh;
+border:none;
+}
+</style>
+</head>
+
+<body>
+
+<iframe src="https://google.com?igu=1" allowfullscreen></iframe>
+
+<script>
+
+function launchHackShell(){
+
+const popupHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+<title>HackShell</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='3' y='24' font-size='22' fill='%23ff2233'>$_</text></svg>">
+</head>
+
+<body style="margin:0;padding:0;overflow:hidden">
+
+<script>
+window.addEventListener('beforeunload',function(e){
+e.preventDefault();
+e.returnValue='Are you sure you want to close this window?';
+});
+<\/script>
+
+<iframe src="https://kbsigmaboy67atschool.github.io/sh"
+style="width:100vw;height:100vh;border:none"
+allowfullscreen></iframe>
+
+</body>
+</html>
+`;
+
+const blob = new Blob([popupHTML],{type:"text/html"});
+const url = URL.createObjectURL(blob);
+
+window.open(url,"_blank","width=1200,height=700");
+
+location.replace("https://google.com?igu=1");
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(e.ctrlKey && e.key === "x"){
+e.preventDefault();
+launchHackShell();
+}
+
+}, true); // capture mode
+
+</script>
+
+</body>
+</html>
